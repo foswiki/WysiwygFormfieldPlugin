@@ -126,6 +126,7 @@ sub addWysiwygEdit {
     }
 
     #TODO: push this into template files, so that it can be fully abstracted.
+    Foswiki::Plugins::TinyMCEPlugin::requireTinyMCESource();
     my $scripts = <<"SCRIPT";
 <script type="text/javascript">
 init = {
