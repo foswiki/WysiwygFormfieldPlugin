@@ -1,0 +1,7 @@
+!noci
+data/System/WysiwygFormfieldPlugin.txt 0644 Documentation page
+data/System/VarEXAMPLETAG.txt 0644 Tag documentation
+data/Sandbox/PluginTestWysiwygFormfieldPlugin.txt 0644 Examples
+lib/Foswiki/Plugins/WysiwygFormfieldPlugin.pm 0444 Perl module
+lib/Foswiki/Plugins/WysiwygFormfieldPlugin/Config.spec 0444 Configuration
+lib/Foswiki/Form/Richtext.pm 0444 tml wysiwyg formfield
