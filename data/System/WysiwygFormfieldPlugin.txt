@@ -1,42 +1,21 @@
 %META:TOPICPARENT{name="Plugins"}%
 <!--
-One line description, required for extensions repository catalog.
-   * Set SHORTDESCRIPTION = Wysiwyg HTML and TML edited textareas to Foswiki Data Forms
+
+   * Set SHORTDESCRIPTION = Wysiwyg edited richtext fields for Foswiki Data Forms
 -->
----+!! Empty Plugin
+---+!! Wysiwyg Formfield Plugin
 
 %SHORTDESCRIPTION%
 
-Learn how to create your own plugin in %SYSTEMWEB%.DevelopingPlugins.
-
 ---++ Preferences
+The default configuration of WysiwygFormfieldPlugin should prove sufficient for most users. The !TinyMCE editor itself is customised through a Javascript object holding a substantial number of initialisation parameters. In previous versions of WysiwygFormfieldPlugin, a text string making up the Javascript object was held in an ordinary Foswiki [[PreferenceSettings][preference variable]] =WYSIWYGFORMFIELDPLUGIN_INIT= which should be removed and replaced with =TINYMCEPLUGIN_INIT_TOPIC= (described below) in most circumstances.
 
-Plugin preferences should be set using =configure=, as described in
-%SYSTEMWEB%.DevelopingPlugins. You can also use
-[[%SYSTEMWEB%.PreferenceSettings][preference settings]] to define any
-user-controllable configuration. You are strongly advised
-to use the name of the plugin as a prefix, to avoid the risk of namespace
-clashes with other extensions that may try to use the same name.
-
-*BAD*
-   * Set EXAMPLE = Example setting
-   * Set FORMAT  = %d-%m-%y
-*Good*
-   * Set EMPTYPLUGIN_EXAMPLE = Example setting
-   * Set EMPTYPLUGIN_FORMAT  = %d-%m-%y
-
----++ Installation
-%$INSTALL_INSTRUCTIONS%
-
----++ Preferences
-The default configuration of TinyMCEPlugin should prove sufficient for most users. The !TinyMCE editor itself is customised through a Javascript object holding a substantial number of initialisation parameters. In previous versions of TinyMCEPlugin, a text string making up the Javascript object was held in an ordinary Foswiki [[PreferenceSettings][preference variable]] =TINYMCEPLUGIN_INIT= which should be removed and replaced with =TINYMCEPLUGIN_INIT_TOPIC= (described below) in most circumstances.
-
----+++ TINYMCEPLUGIN_INIT_TOPIC
-To make configuration easier and less error-prone, configuration is held in a topic section. The name of the topic is set in the [[PreferenceSettings][preference variable]] =TINYMCEPLUGIN_INIT_TOPIC=, from which the [[VarSTARTSECTION][section]] named =TINYMCEPLUGIN_INIT= is used. =TINYMCEPLUGIN_INIT_TOPIC= is currently set to %=TINYMCEPLUGIN_INIT_TOPIC%.
+---+++ WYSIWYGFORMFIELDPLUGIN_INIT_TOPIC
+To make configuration easier and less error-prone, configuration is held in a topic section. The name of the topic is set in the [[PreferenceSettings][preference variable]] =WYSIWYGFORMFIELDPLUGIN_INIT_TOPIC=, from which the [[VarSTARTSECTION][section]] named =WYSIWYGFORMFIELDPLUGIN_INIT= is used. =WYSIWYGFORMFIELDPLUGIN_INIT_TOPIC= is currently set to %=WYSIWYGFORMFIELDPLUGIN_INIT_TOPIC%.
 
 For a full explanation and guidance on configuration of available !TinyMCE options, see the [[http://wiki.moxiecode.com/index.php/TinyMCE:Configuration][Moxicode TinyMCE Wiki]]. 
 
-Below is the default configuration. If it is to be modified, it should be copied (including =%<nop>START/ENDSECTION{}%= macros) to a different topic to avoid customisations being overwritten when TinyMCEPlugin is upgraded.
+Below is the default configuration. If it is to be modified, it should be copied (including =%<nop>START/ENDSECTION{}%= macros) to a different topic to avoid customisations being overwritten when WysiwygFormfieldPlugin is upgraded.
 
 ---++++ WYSIWYGFORMFIELDPLUGIN_INIT
 %TWISTY{showlink="Show default parameters..."}%
@@ -178,9 +157,12 @@ Below is the default configuration. If it is to be modified, it should be copied
 %ENDTWISTY%
 
 Example:
-   * Create <nop>Main.TinyMCEPlugin, copying the text above
-   * Update the =TINYMCEPLUGIN_INIT_TOPIC= variable to point to the newly created topic, Eg. in Main.SitePreferences or <nop>MyWeb.WebPreferences:%BR%\
-   <verbatim class="tml">   * Set TINYMCEPLUGIN_INIT_TOPIC = Main.TinyMCEPlugin</verbatim>
+   * Create <nop>Main.WysiwygFormfieldPlugin, copying the text above
+   * Update the =WYSIWYGFORMFIELDPLUGIN_INIT_TOPIC= variable to point to the newly created topic, Eg. in Main.SitePreferences or <nop>MyWeb.WebPreferences:%BR%\
+   <verbatim class="tml">   * Set WYSIWYGFORMFIELDPLUGIN_INIT_TOPIC = Main.WysiwygFormfieldPlugin</verbatim>
+
+---++ Installation
+%$INSTALL_INSTRUCTIONS%
 
 
 ---++ Info
