@@ -125,22 +125,8 @@ sub addWysiwygEdit {
         return $mess;
     }
 
-    #TODO: push this into template files, so that it can be fully abstracted.
-    my $scripts = <<"SCRIPT";
-%JQREQUIRE{"TinyMCE"}%<script type="text/javascript">
-init = {
-  $init
-};
-FoswikiTiny.install(init);
-</script>
-SCRIPT
-
-    Foswiki::Func::addToZone( 'script', 'TinyMCEPluginTextArea',
-        Foswiki::Func::expandCommonVariables($scripts),
-        'JQUERYPLUGIN::TINYMCE' );
-
-    # See %SYSTEMWEB%.IfStatements for a description of this context id.
-    Foswiki::Func::getContext()->{textareas_hijacked} = 1;
+    Foswiki::Plugins::TinyMCEPlugin::installTinyMCE(
+        'TinyMCEPluginRichTextFormfieldArea', $init );
 
     return;
 }
