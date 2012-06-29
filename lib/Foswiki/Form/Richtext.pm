@@ -86,7 +86,7 @@ sub populateMetaFromQueryData {
         $value = $query->param( $this->{name} );
         $value = '' unless defined $value;
 
-        print STDERR "richtext::fromPOST($value)\n";
+        #print STDERR "richtext::fromPOST($value)\n";
 
         my $WYSIWYG_SECRET_ID =
           $Foswiki::Plugins::WysiwygPlugin::Handlers::SECRET_ID;
@@ -98,7 +98,11 @@ sub populateMetaFromQueryData {
 #Foswiki::Plugins::WysiwygPlugin::afterEditHandler($value, $meta->topic, $meta->web);
 #should be careful only to do the regex if we've actually wysiwyg converted
             $value =~ s/\n/\r\n/g;
-            print STDERR "richtext::populate($value)\n";
+
+            #remove placeholder so blank text == empty formfield
+            $value =~ s/\r\n$//m;
+
+            #print STDERR "richtext::populate($value)\n";
             $query->param( $this->{name}, $value );
         }
     }
